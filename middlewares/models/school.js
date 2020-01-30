@@ -14,8 +14,22 @@ module.exports = (sequelize, DataTypes) => {
     lat: DataTypes.BIGINT,
     dev_id: DataTypes.INTEGER
   }, {});
+
+  
   School.associate = function(models) {
     // associations can be defined here
+    School.hasMany(models.Campus,{
+      foreignKey: 'school_id',
+      onDelete: 'CASCADE'
+    })
+    School.hasMany(models.Faculty,{
+      foreignKey: 'school_id',
+      onDelete: 'CASCADE'
+    })
+    School.hasMany(models.LectureHall,{
+      foreignKey: 'school_id',
+      onDelete: 'CASCADE'
+    })
   };
   return School;
 };

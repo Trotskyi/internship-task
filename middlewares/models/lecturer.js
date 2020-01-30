@@ -20,6 +20,18 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Lecturer.associate = function(models) {
     // associations can be defined here
+    Lecturer.belongsToMany(models.Course,{
+      through: 'LecturerCourse',
+      as: 'courses',
+      foreignKey: 'lect_id'
+    })
+    Lecturer.belongsTo(models.Department, {
+      foreignKey: 'dept_id'
+    })
+    Lecturer.hasMany(models.Attendance, {
+      foreignKey: 'lect_id',
+      onDelete: 'CASCADE'
+    })
   };
   return Lecturer;
 };

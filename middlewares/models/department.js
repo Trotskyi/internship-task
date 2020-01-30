@@ -13,6 +13,21 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Department.associate = function(models) {
     // associations can be defined here
+    Department.belongsTo(models.Faculty,{
+      foreignKey: 'faculty_id'
+    })
+    Department.hasMany(models.Lecturer,{
+      foreignKey: 'dept_id',
+      onDelete: 'CASCADE'
+    })
+    Department.hasMany(models.Student,{
+      foreignKey: 'dept_id',
+      onDelete: 'CASCADE'
+    })
+    Department.hasMany(models.Course, {
+      foreignKey: 'dept_id',
+      onDelete: 'CASCADE'
+    })
   };
   return Department;
 };

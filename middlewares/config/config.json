@@ -1,11 +1,11 @@
 {
   "development": {
-    "username": "oleksandr",
-    "password": "183461793",
-    "database": "smartattendance",
+    "username": "department",
+    "password": "department",
+    "database": "department",
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "operatorsAliases": false
+    "operatorsAliases": 1
   },
   "test": {
     "username": "root",

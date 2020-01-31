@@ -3,6 +3,7 @@
     "username": "department",
     "password": "department",
     "database": "department",
+
     "host": "127.0.0.1",
     "dialect": "postgres",
     "operatorsAliases": 1
